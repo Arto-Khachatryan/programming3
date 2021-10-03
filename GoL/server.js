@@ -131,7 +131,6 @@ function smash(){
             gazanikArr.push(newGazanik)
     
         }
-        console.log(matrix[setY])
     }
 
 }
@@ -151,6 +150,7 @@ function weather() {
     }
     io.sockets.emit('weather', weath)
 }
+weather()
 setInterval(weather, 5000);
 
 
@@ -269,7 +269,7 @@ function wait2(x) {
 
 
 function stopAndCount() {
-    console.log("asasCafdsfdsfdsf");
+
     if (filthArr.length > 0 && sunArr.length > 0 && stop) {
         stop = false
         var blackNumber = 0

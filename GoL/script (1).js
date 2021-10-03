@@ -28,7 +28,7 @@ check = false
 // var distance
 let cnv
 let color = "#acacac"
-
+weath = 'summer'
 function setup() {
 
     var matrix = []
@@ -53,8 +53,8 @@ function setup() {
     socket.on("dataBlackNumber" , test)
 
     socket.on("weather", function (data) {
-     weath = data;
-    })
+        weath = data;
+    })  
 
     socket.on("data" , draw)
 
@@ -69,6 +69,7 @@ function setup() {
         gazanikC.innerText = data.gazanikC
 
         matrix = data.matrix
+
 
         cnv = createCanvas(matrix[0].length * side, matrix.length * side); // ok
         cnv.mouseOver(makeGreen)
@@ -86,8 +87,6 @@ function setup() {
                 
                 if((x * side<mouseX)&&(x*side + side>mouseX)&&(y * side<mouseY)&&(y*side + side>mouseY)){
                   fill("black")
-                  
-                  
                 }else{
                     if (matrix[y][x] == 1) {
                         if(weath == "summer") {
@@ -95,7 +94,7 @@ function setup() {
                         }else if (weath == "autumn") {
                             fill("#333300");
                         }else if (weath == "winter") {
-                            fill("grey");
+                            fill("white");
                         }else if (weath == "spring") {
                             fill("#4dffa6");
                         }
